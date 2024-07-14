@@ -8,16 +8,6 @@ fi
 start_index=$1
 end_index=$2
 
-if ! [[ "$start_index" =~ ^[0-9]+$ ]] || ! [[ "$end_index" =~ ^[0-9]+$ ]]; then
-    echo "Both arguments must be integers."
-    exit 1
-fi
-
-if [ "$start_index" -ge "$end_index" ]; then
-    echo "Start index must be less than end index."
-    exit 1
-fi
-
 output_file="inputdata"
 > $output_file
 
