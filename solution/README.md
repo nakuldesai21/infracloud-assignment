@@ -64,23 +64,14 @@ You don't need prior knowledge of Docker or Prometheus. Please review the follow
 **The script should accept two arguments to define the range of indices. Here is an example script:**
 ```bash
    #!/bin/bash
+
    if [ "$#" -ne 2 ]; then
-    echo "Usage: $0  give proper <start_index> <end_index>"
-    exit 1
+      echo "Usage: $0  give proper <start_index> <end_index>"
+      exit 1
    fi
 
    start_index=$1
    end_index=$2
-
-   if ! [[ "$start_index" =~ ^[0-9]+$ ]] || ! [[ "$end_index" =~ ^[0-9]+$ ]]; then
-      echo "Both arguments must be integers."
-      exit 1
-   fi
-
-   if [ "$start_index" -ge "$end_index" ]; then
-      echo "Start index must be less than end index."
-      exit 1
-   fi
 
    output_file="inputdata"
    > $output_file
